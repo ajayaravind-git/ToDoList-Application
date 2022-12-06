@@ -17,14 +17,14 @@ class TodoList extends Component {
     }
     remove(id) {
         this.setState({
-            Todo: this.state.Todo.filter(Todo.id != id)
+            Todo: this.state.Todo.filter(td => (td.id != id))
         })
     }
     render() {
-        const Todolist = this.state.Todo.map(td => (<Todo todo={td.name} />))
+        const Todolist = this.state.Todo.map(td => (<Todo RMtodo={this.remove} key={td.id} todo={td.name} id={td.id} />))
         return <div>
             <NewTodoForm addTodo={this.create} />
-            <Todo todo={Todolist} />
+            {Todolist}
         </div>
     }
 }

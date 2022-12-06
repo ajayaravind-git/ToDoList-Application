@@ -17,8 +17,11 @@ class NewTodoForm extends Component {
     }
     handleSubmit(evt) {
         evt.preventDefault();
-        const newTodo = ({ name: this.state.newtodo, id: uuid() })
+        const newTodo = ({ name: this.state.newtodo, id: uuidv4() })
         this.props.addTodo(newTodo);
+        this.setState({
+            newtodo: ''
+        })
 
     }
     render() {
