@@ -6,4 +6,29 @@
 
 .notCompleted {
     cursor: pointer;
+    font-size: larger;
+    font-weight: 400;
+    background-color: lightgoldenrodyellow;
+
+}
+
+.btn-primary {
+    background-color: lightskyblue;
+    color: black;
+    height: 2.2em;
+    font-size: smaller
+}
+
+.btn-danger {
+    background-color: lightgray;
+    color: black;
+    height: 2.2em;
+    font-size: smaller
+}
+
+.btn-success {
+    background-color: lightgreen;
+    color: black;
+    height: 2.5em;
+    font-size: smaller;
 }

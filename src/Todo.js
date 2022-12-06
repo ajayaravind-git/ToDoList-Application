@@ -44,15 +44,15 @@ class Todo extends Component {
             result =
                 (<form onSubmit={this.handleUpdate}>
                     <input type="text" value={this.state.task} name="task" onChange={this.handleChange} />
-                    <button>Save</button>
+                    <button className='btn btn-success my-3 mx-3 btn-sm'>Save</button>
                 </form>)
 
         } else {
             result = <div>
 
-                <span onClick={this.handleToggleClick} className={this.props.completed ? 'completed' : 'notCompleted'}>{this.props.todo}</span>
-                <button onClick={this.toggleForm}>Edit</button>
-                <button onClick={this.handleClick}>x</button>
+                <span onClick={this.handleToggleClick} className={this.props.completed ? 'completed' : 'notCompleted px-3 py-1'}>{this.props.todo}</span>
+                <button className='btn btn-primary mx-3 my-3 btn-sm' onClick={this.toggleForm}>Edit</button>
+                <button className='btn btn-danger btn-sm' onClick={this.handleClick}>Delete</button>
             </div>
         }
         return result;

@@ -28,7 +28,7 @@ class NewTodoForm extends Component {
         return <div>
             <form onSubmit={this.handleSubmit}>
                 <input type="text" value={this.state.newtodo} id="newtodo" name="newtodo" placeholder='New Todo' onChange={this.handleChange} />
-                <button>Add</button>
+                <button className='btn btn-success my-3 mx-3'>Add</button>
             </form>
 
         </div>

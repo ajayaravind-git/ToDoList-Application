@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewTodoForm from './NewTodoForm';
 import Todo from './Todo';
+import './TodoList.css';
 class TodoList extends Component {
     constructor(props) {
         super(props);
@@ -48,10 +49,12 @@ class TodoList extends Component {
     }
     render() {
         const Todolist = this.state.Todo.map(td => (<Todo todoCompleted={this.toggleCompletion} completed={td.completed} UPtodo={this.update} RMtodo={this.remove} key={td.id} todo={td.name} id={td.id} />))
-        return <div>
-            <h1>Todo List</h1>
-            <NewTodoForm addTodo={this.create} />
-            {Todolist}
+        return <div className='card mx-auto my-5'>
+            <section className='card-body '>
+                <h1 className='card-title display-3'>Todo List</h1>
+                <NewTodoForm addTodo={this.create} />
+                {Todolist}
+            </section>
         </div>
     }
 }
