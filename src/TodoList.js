@@ -9,6 +9,8 @@ class TodoList extends Component {
         }
         this.create = this.create.bind(this);
         this.remove = this.remove.bind(this);
+        this.update = this.update.bind(this);
+        this.toggleCompletion = this.toggleCompletion.bind(this);
     }
     create(newTodo) {
         this.setState({
@@ -20,9 +22,34 @@ class TodoList extends Component {
             Todo: this.state.Todo.filter(td => (td.id != id))
         })
     }
+    update(id, updatedName) {
+        const updatedTodo = this.state.Todo.map(td => {
+            if (td.id === id) {
+                return { ...td, name: updatedName }
+            }
+            return td;
+        })
+        this.setState({
+            Todo: updatedTodo
+        })
+
+    }
+    toggleCompletion(id) {
+        const updatedTodo = this.state.Todo.map(td => {
+            if (td.id === id) {
+                return { ...td, completed: !td.completed }
+            }
+            return td;
+        })
+        this.setState({
+            Todo: updatedTodo
+        })
+
+    }
     render() {
-        const Todolist = this.state.Todo.map(td => (<Todo RMtodo={this.remove} key={td.id} todo={td.name} id={td.id} />))
+        const Todolist = this.state.Todo.map(td => (<Todo todoCompleted={this.toggleCompletion} completed={td.completed} UPtodo={this.update} RMtodo={this.remove} key={td.id} todo={td.name} id={td.id} />))
         return <div>
+            <h1>Todo List</h1>
             <NewTodoForm addTodo={this.create} />
             {Todolist}
         </div>
