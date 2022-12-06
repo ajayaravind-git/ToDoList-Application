@@ -53,8 +53,8 @@ class TodoList extends Component {
             <section className='card-body '>
                 <h1 className='card-title display-3'>Todo List</h1>
                 <span className='subText'>Get things done!</span><hr></hr>
-                <NewTodoForm addTodo={this.create} />
                 {Todolist}
+                <NewTodoForm addTodo={this.create} />
             </section>
         </div>
     }
